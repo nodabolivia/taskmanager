@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.gestiondetareas.ui.fragments.MainFragment"
+        android:label="Notas"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_add_task"
+            app:destination="@id/taskFragment" />
+        <action
+            android:id="@+id/action_add_task_text"
+            app:destination="@id/taskTextFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.gestiondetareas.ui.fragments.TaskFragment"
+        android:label="Agregar nota"
+        tools:layout="@layout/fragment_task">
+        <argument
+            android:name="currentNotaWithCasillas"
+            app:argType="com.example.gestiondetareas.dal.models.NotaWithCasillas"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskTextFragment"
+        android:name="com.example.gestiondetareas.ui.fragments.TaskTextFragment"
+        android:label="Agregar nota"
+        tools:layout="@layout/fragment_task_text">
+        <argument
+            android:name="currentNota"
+            app:argType="com.example.gestiondetareas.dal.models.Notas"
+            app:nullable="true" />
+    </fragment>
+</navigation>
